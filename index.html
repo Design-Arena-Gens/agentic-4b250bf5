@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camel Freight Console</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top-bar">
+        <div class="logo">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=120&h=80&q=60" alt="Camel logo" />
+          <span>Camel Freight</span>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn primary" id="addEntryBtn">Add</button>
+          <button type="button" class="btn" id="editEntryBtn">Edit</button>
+          <button type="button" class="btn" id="deleteEntryBtn">Delete</button>
+          <button type="button" class="btn" id="relayBtn">Relay</button>
+          <button type="button" class="btn" id="printBtn">Print</button>
+          <button type="button" class="btn" id="reloadBtn">Reload</button>
+        </div>
+        <div class="search-box">
+          <span class="icon">🌙</span>
+          <input type="search" id="searchInput" placeholder="Search entries..." />
+        </div>
+      </header>
+
+      <main>
+        <section class="alarm">
+          <div class="alarm-indicator">
+            <span class="led"></span>
+            <span class="text">Alarm Active</span>
+          </div>
+          <audio id="alarmAudio" loop>
+            <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg" />
+          </audio>
+        </section>
+
+        <section class="form-card">
+          <h2>Data Entry</h2>
+          <form id="entryForm">
+            <div class="grid">
+              <label>
+                <span>Plate Number</span>
+                <input type="text" id="plateNumber" required />
+              </label>
+              <label>
+                <span>Check Number</span>
+                <input type="text" id="checkNumber" />
+              </label>
+              <label>
+                <span>Yuk bilan (Kg)</span>
+                <input type="number" id="yukBilan" min="0" step="0.01" required />
+              </label>
+              <label>
+                <span>Yuksiz (Kg)</span>
+                <input type="number" id="yuksiz" min="0" step="0.01" required />
+              </label>
+              <label>
+                <span>Sof Vazn (Kg)</span>
+                <input type="number" id="sofVazn" readonly />
+              </label>
+              <label>
+                <span>Date</span>
+                <input type="date" id="date" required />
+              </label>
+              <label>
+                <span>Summa 30,000</span>
+                <input type="number" id="summa30" min="0" step="0.01" value="30000" />
+              </label>
+              <label>
+                <span>Summa 40,000</span>
+                <input type="number" id="summa40" min="0" step="0.01" value="40000" />
+              </label>
+              <label>
+                <span>Price</span>
+                <input type="number" id="price" min="0" step="0.01" />
+              </label>
+            </div>
+          </form>
+        </section>
+
+        <section class="table-card">
+          <h2>Shipments</h2>
+          <table id="entriesTable">
+            <thead>
+              <tr>
+                <th data-key="plateNumber">Plate_Number</th>
+                <th data-key="checkNumber">Check_Number</th>
+                <th data-key="yukBilan">Yuk_bilan</th>
+                <th data-key="date">Sana (Date)</th>
+                <th data-key="yuksiz">Yuksiz</th>
+                <th data-key="sofVazn">Sof_Vazin</th>
+                <th data-key="price">Price</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
